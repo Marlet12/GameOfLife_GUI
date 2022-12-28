@@ -1,3 +1,4 @@
+import Model.Logic.Colour;
 import Model.Logic.Player;
 import Model.Util.UIText;
 import javafx.event.ActionEvent;
@@ -22,7 +23,12 @@ public class WelcomeSceneController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
-    private final String[] colours = {"Blue","Red","Green","Yellow"};
+    private final String[] colours = {
+            Colour.BLUE.get_colour(),
+            Colour.GREEN.get_colour(),
+            Colour.RED.get_colour(),
+            Colour.YELLOW.get_colour()
+    };
     @FXML
     private AnchorPane scenePane;
     @FXML
@@ -41,8 +47,8 @@ public class WelcomeSceneController implements Initializable {
         if (is_valid_name(namePlayer1) && is_valid_name(namePlayer2) &&
                 has_not_same_colour() && has_not_same_name()) {
             // create the 2 Players
-            Player p1 = new Player(choiceBox1.getValue(), namePlayer1.getText());
-            Player p2 = new Player(choiceBox2.getValue(), namePlayer2.getText());
+            Player p1 = new Player(Colour.valueOf(choiceBox1.getValue().toUpperCase()), namePlayer1.getText());
+            Player p2 = new Player(Colour.valueOf(choiceBox2.getValue().toUpperCase()), namePlayer2.getText());
 
             execute_scene_switch(event, p1, p2);
         } else {
@@ -50,6 +56,7 @@ public class WelcomeSceneController implements Initializable {
         }
     }
     private boolean is_valid_name(TextField namePlayer) {
+        // name validation
         String name = namePlayer.getText();
         Pattern pattern = Pattern.compile("^[a-zA-Z0-9_][a-zA-Z0-9_. ]*$");
         Matcher matcher = pattern.matcher(name);
@@ -77,10 +84,10 @@ public class WelcomeSceneController implements Initializable {
         GridSceneController gsc = loader.getController();
 
         gsc.pass_name(p1.get_name(), p2.get_name());
-        gsc.pass_colour(p1.get_sColour(), p2.get_sColour());
+        gsc.pass_colour(p1.get_colour().get_colour(), p2.get_colour().get_colour());
 
-        gsc.display_name1(p1.get_name(), p1.get_sColour());
-        gsc.display_name2(p2.get_name(), p2.get_sColour());
+        gsc.display_name1(p1.get_name(), p1.get_colour().get_colour());
+        gsc.display_name2(p2.get_name(), p2.get_colour().get_colour());
     }
 
     public void exit_program() {
@@ -98,6 +105,7 @@ public class WelcomeSceneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        // add colours to both choice boxes
         choiceBox1.getItems().addAll(colours);
         choiceBox1.getSelectionModel().selectFirst();
 

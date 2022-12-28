@@ -1,10 +1,10 @@
 package Model.Logic;
 
 public enum Colour {
-    BLUE("B"),
-    RED("R"),
-    GREEN("G"),
-    YELLOW("Y"),
+    BLUE("Blue"),
+    RED("Red"),
+    GREEN("Green"),
+    YELLOW("Yellow"),
     CELL("X"),
     NONE(" ");
 
@@ -17,6 +17,5 @@ public enum Colour {
     public String get_colour() {
         return this.colour;
     }
-
 
 }
