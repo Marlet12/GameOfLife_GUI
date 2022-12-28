@@ -14,12 +14,10 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("Scenes/WelcomeScene.fxml")));
-        stage.setTitle("Conway's Game of Life");
+        stage.setTitle("Conway's 2-Player Game of Life");
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
 
     }
 }
-// Testing if pushing works
-// Test

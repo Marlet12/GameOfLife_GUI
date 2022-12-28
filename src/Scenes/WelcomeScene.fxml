@@ -7,26 +7,23 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="scenePane" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SceneController">
+<AnchorPane fx:id="scenePane" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WelcomeSceneController">
     <children>
-        <Label layoutX="105.0" layoutY="52.0" text="Welcome to Conway's Game of Life!">
+        <Label alignment="CENTER" layoutY="52.0" prefHeight="43.0" prefWidth="600.0" text="Welcome to Conway's Game of Life!">
             <font>
                 <Font size="29.0" />
             </font>
         </Label>
+        <Button layoutX="200.0" layoutY="195.0" mnemonicParsing="false" onAction="#switch_to_GridScene" prefWidth="200.0" text="PLAY" />
+        <TextField fx:id="namePlayer1" layoutX="127.0" layoutY="300.0" promptText="Name Player 1" />
+        <ChoiceBox fx:id="choiceBox1" layoutX="300.0" layoutY="300.0" prefWidth="150.0" />
+        <TextField fx:id="namePlayer2" layoutX="127.0" layoutY="366.0" promptText="Name Player 2" />
+        <ChoiceBox fx:id="choiceBox2" layoutX="300.0" layoutY="366.0" prefWidth="150.0" />
+        <Label fx:id="informationLabelWelcomeScene" alignment="CENTER" layoutY="231.0" prefHeight="59.0" prefWidth="600.0" />
         <Button fx:id="exitButton" layoutX="275.0" layoutY="516.0" mnemonicParsing="false" onAction="#exit_program" prefHeight="30.0" prefWidth="50.0" text="EXIT" underline="true">
             <font>
                 <Font name="System Bold" size="12.0" />
             </font>
         </Button>
-        <Button layoutX="200.0" layoutY="195.0" mnemonicParsing="false" onAction="#switchToSceneGridPaneButtons" prefWidth="200.0" text="Go to Grid with Buttons" />
-        <TextField fx:id="namePlayer1" layoutX="127.0" layoutY="300.0" promptText="name player 1" />
-        <Button layoutX="463.0" layoutY="300.0" mnemonicParsing="false" onAction="#setNamePlayer1" text="confirm" />
-        <Label fx:id="labelp1" layoutX="143.0" layoutY="336.0" />
-      <ChoiceBox fx:id="choiceBoxColour1" layoutX="300.0" layoutY="300.0" prefWidth="150.0" />
-      <TextField fx:id="namePlayer2" layoutX="127.0" layoutY="366.0" promptText="name player 2" />
-      <ChoiceBox fx:id="choiceBoxColour2" layoutX="300.0" layoutY="366.0" prefWidth="150.0" />
-      <Button layoutX="463.0" layoutY="366.0" mnemonicParsing="false" onAction="#setNamePlayer2" text="confirm" />
-      <Label fx:id="labelp2" layoutX="146.0" layoutY="403.0" />
     </children>
 </AnchorPane>
